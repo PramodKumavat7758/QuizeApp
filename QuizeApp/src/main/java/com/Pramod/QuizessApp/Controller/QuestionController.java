@@ -1,34 +1,33 @@
 package com.Pramod.QuizessApp.Controller;
 
+import com.Pramod.QuizessApp.DAO.QuestionDao;
 import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("question")
+@Controller
+@RequestMapping("/question")
 public class QuestionController {
-@Autowired
-    QuestionService questionService;
+    @Autowired
+    private QuestionService questionService;
 
-    @GetMapping("allQuestions")
-    public ResponseEntity<List<Question> >getAllQuestions(){  // In this we fetching data with status code like 404 200 500
 
-        return questionService.getAllQuestions();
+
+    @Autowired
+    public QuestionController(QuestionService theQuestionService){
+        questionService=theQuestionService;
     }
-
-    @GetMapping("category/{category}")
-    public ResponseEntity<List<Question> >getQuestionsByCategory(@PathVariable String category){
-        return questionService.getQuestionsByCategory(category);
-    }
-
-    @PostMapping("add")
-    public ResponseEntity<String> addQuestion(@RequestBody Question question){
-       return questionService.addQuestion(question);
+  @GetMapping("/List")
+  public String getAllQuestions(Model model) {
+      List<Question> questions = questionService.findAll();
+      model.addAttribute("questions", questions);
+      return "question/QuestionList"; // This should be the name of your Thymeleaf template
+  }
 
 
-    }
 }

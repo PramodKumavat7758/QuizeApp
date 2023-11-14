@@ -23,7 +23,7 @@ public class QuizService {
     QuestionDao questionDao;
 
 
-    public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
+  /*  public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
         List<Question> questions = questionDao.findRandomQuestionsByCategory(category, numQ);
 
         Quiz quiz = new Quiz();
@@ -52,11 +52,11 @@ public class QuizService {
         List<Question> questions = quiz.getQuestions();
         int rightAns = 0, i = 0;
         for (Response response : responses){
-            if (response.getResponse().equals(questions.get(i).getRightAnswer()));
+            if (response.getResponse().equals(questions.get(i).getRightAnswer())){
             rightAns++;
-            i++;
-        }
-        return new  ResponseEntity<>(rightAns, HttpStatus.OK);
 
+        }i++;}
+        return new  ResponseEntity<>(rightAns, HttpStatus.OK);
+*/
     }
-}
+
