@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Question List</title>
+</head>
+<body>
+<div class="container">
+    <h3>Question List</h3>
+    <hr>
+ <!--   <a th:href="@" class="btn btn-primary- btn-sm mb-3">
+        Add Question
+    </a>-->
+    <table class="table table-bordered table-striped">
+        <thead class="tabe-dark">
+        <tr>
+            <th>Id</th>
+            <th>Question Tile</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th width="70px">Difficulty Level</th>
+            <th width="50px">Category</th>
+            <th>Right Answer</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempQuestion : ${Question}">
+            <td th:text="${tempQuestion.id}"/>
+            <td th:text="${tempQuestion.questionTitle}"/>
+            <td th:text="${tempQuestion.option1}"/>
+            <td th:text="${tempQuestion.option2}"/>
+            <td th:text="${tempQuestion.option3}"/>
+            <td th:text="${tempQuestion.difficultylevel}"/>
+            <td th:text="${tempQuestion.category}"/>
+            <td th:text="${tempQuestion.rightAnswer}"/>
+            <td>
+                <a th:href="" class="btn btn-info btn-sm">
+                    Update
+                </a>
+                <a th:href="" class="btn btn-info btn-sm" onclick="if(!(confirm('Are You Sure..?'))) return false">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
