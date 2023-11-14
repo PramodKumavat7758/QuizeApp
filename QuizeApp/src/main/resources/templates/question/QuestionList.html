@@ -7,16 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
     <title>Question List</title>
 </head>
 <body>
 <div class="container">
     <h3>Question List</h3>
     <hr>
- <!--   <a th:href="@" class="btn btn-primary- btn-sm mb-3">
+    <a th:href="@{'/addQuestion'}" class="btn btn-primary btn-sm mb-3">
         Add Question
-    </a>-->
+    </a>
     <table class="table table-bordered table-striped">
         <thead class="tabe-dark">
         <tr>
@@ -32,7 +34,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="tempQuestion : ${Question}">
+        <tr th:each="tempQuestion : ${questions}">
             <td th:text="${tempQuestion.id}"/>
             <td th:text="${tempQuestion.questionTitle}"/>
             <td th:text="${tempQuestion.option1}"/>
@@ -42,10 +44,11 @@
             <td th:text="${tempQuestion.category}"/>
             <td th:text="${tempQuestion.rightAnswer}"/>
             <td>
-                <a th:href="" class="btn btn-info btn-sm">
+                <a th:href="@{'/updateQuestion/' + ${tempQuestion.id}}" class="btn btn-info btn-sm">
                     Update
                 </a>
-                <a th:href="" class="btn btn-info btn-sm" onclick="if(!(confirm('Are You Sure..?'))) return false">
+                <a th:href="@{'/deleteQuestion/' + ${tempQuestion.id}}" class="btn btn-info btn-sm"
+                   onclick="return confirm('Are you sure?')">
                     Delete
                 </a>
             </td>

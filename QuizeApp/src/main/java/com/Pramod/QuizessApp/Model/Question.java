@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 public class Question {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "question_seq_generator")
     @SequenceGenerator(name = "question_seq_generator", sequenceName = "question_seq", allocationSize = 1)
     private Integer id;
