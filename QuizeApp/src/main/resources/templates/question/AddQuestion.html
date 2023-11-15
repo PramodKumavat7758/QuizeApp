@@ -13,7 +13,7 @@
 <div class="container">
   <h3>Add New Question</h3>
 </div>
-<form class="row g-3" action="#" th:action="@{/question/add}" th:object="${questions}" method="POST">
+<form class="row g-3" action="#" th:action="@{/question/save}" th:object="${questions}" method="POST">
 
   <!-- Hidden ID field for updating existing questions -->
   <input type="hidden" th:field="*{id}">
@@ -38,12 +38,16 @@
   <div class="col-12">
     <input type="text" th:field="*{rightAnswer}" class="form-control mb-4 w-25" placeholder="Right Answer">
   </div>
-
-  <!-- Radio Button (Example, modify as needed) -->
-  <div class="col-12">
-    <label for="option1">Option 1</label>
-    <input type="radio" id="option1" name="selectedOption" th:value="option1" th:checked="*{selectedOption == 'option1'}"> Option 1
+  <div class="col-6">
+    <input type="text" th:field="*{difficultylevel}" class="form-control mb-4 w-25" placeholder="Difficulty Level">
   </div>
+  <div class="col-6">
+    <input type="text" th:field="*{category}" class="form-control mb-4 w-25" placeholder="Category">
+  </div>
+  <!-- Dropdown Menu for Difficulty Level -->
+  <
+
+  <!-- Hidden Input for Difficulty Level -->
 
   <!-- Submit Button -->
   <div class="col-12">
@@ -51,6 +55,9 @@
   </div>
 
 </form>
+
+<!-- Bootstrap JS (if not included elsewhere) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"></script>
 
 </body>
 </html>

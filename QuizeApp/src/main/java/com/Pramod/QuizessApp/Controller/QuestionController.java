@@ -3,6 +3,7 @@ package com.Pramod.QuizessApp.Controller;
 import com.Pramod.QuizessApp.DAO.QuestionDao;
 import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Service.QuestionService;
+import com.Pramod.QuizessApp.Service.QuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,11 @@ public class QuestionController {
         Question theQuestion = new Question();
         model.addAttribute("questions", theQuestion);
         return "question/AddQuestion";
+  }
+  @PostMapping("/save")
+    public String saveQuestion(@ModelAttribute("questions") Question theQuestion){
+      questionService.save(theQuestion);
+      return "redirect:question/QuestionList";
   }
 
 

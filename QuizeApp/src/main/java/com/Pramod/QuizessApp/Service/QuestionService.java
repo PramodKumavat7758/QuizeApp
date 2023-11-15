@@ -8,6 +8,9 @@ import java.util.List;
 public interface QuestionService {
 
 
+    void save(Question theQuestion);
+
+
     // Fetching all the questions from DB
    public List<Question> findAll();
 }

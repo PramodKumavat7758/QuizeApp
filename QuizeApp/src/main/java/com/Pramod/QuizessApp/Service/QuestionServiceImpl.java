@@ -12,6 +12,12 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionDao questionDao;
+
+    @Override
+    public void save(Question theQuestion) {
+        questionDao.save(theQuestion);
+    }
+
     @Override
     public List<Question> findAll() {
         return questionDao.findAll();
