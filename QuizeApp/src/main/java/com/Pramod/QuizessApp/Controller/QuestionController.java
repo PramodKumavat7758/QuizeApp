@@ -3,12 +3,12 @@ package com.Pramod.QuizessApp.Controller;
 import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/question")
@@ -33,10 +33,16 @@ public class QuestionController {
         return "question/AddQuestion";
   }
   @GetMapping("/UpdateQuestion")
-  public String updateQuestion(@RequestParam("questionId") int QId,  Model model){
-        Question theQuestion = questionService.findAll().get(QId);
-        model.addAttribute("questions",theQuestion);
+  public String updateQuestion(@RequestParam("questionId") int questionId,  Model model){
+        Question theQuestion = questionService.findById(questionId);
+        model.addAttribute("questions", theQuestion);
         return "question/AddQuestion";
+  }
+
+  @GetMapping("/DeleteQuestion")
+  public String deleteQuestion(@RequestParam("questionId") int questionId){
+       questionService.deleteById(questionId);
+      return "redirect:/question/List";
   }
   @PostMapping("/save")
     public String saveQuestion(@ModelAttribute("questions") Question theQuestion){
