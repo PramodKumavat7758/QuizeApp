@@ -3,12 +3,10 @@ package com.Pramod.QuizessApp.Controller;
 import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,6 +30,12 @@ public class QuestionController {
     public String addQuestion(Model model){
         Question theQuestion = new Question();
         model.addAttribute("questions", theQuestion);
+        return "question/AddQuestion";
+  }
+  @GetMapping("/UpdateQuestion")
+  public String updateQuestion(@RequestParam("questionId") int QId,  Model model){
+        Question theQuestion = questionService.findAll().get(QId);
+        model.addAttribute("questions",theQuestion);
         return "question/AddQuestion";
   }
   @PostMapping("/save")
