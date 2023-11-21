@@ -19,6 +19,9 @@
     <a th:href="@{'/question/CreateQuestion'}" class="btn btn-primary btn-sm mb-3">
         Create New Question
     </a>
+    <a th:href="@{/quiz/QuizList}" class="btn btn-primary btn-sm mb-3">
+        Show All Quizes
+    </a>
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
         <tr>
@@ -47,6 +50,7 @@
                 <a th:href="@{/question/UpdateQuestion(questionId=${tempQuestion.id})}" class="btn btn-info btn-sm">
                     Update
                 </a>
+
                 <a th:href="@{/question/DeleteQuestion(questionId=${tempQuestion.id})}" class="btn btn-danger btn-sm"
                    onclick="return confirm('Are you sure?')">
                     Delete

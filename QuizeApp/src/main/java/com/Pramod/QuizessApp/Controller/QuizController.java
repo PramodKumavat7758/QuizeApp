@@ -24,5 +24,4 @@ public class QuizController {
         return "question/quiz/quizList";
     }
 
-
 }
