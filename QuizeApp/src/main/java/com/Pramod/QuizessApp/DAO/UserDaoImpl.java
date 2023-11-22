@@ -8,20 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDaoImpl implements UserDao{
-    private EntityManager entityManager;
+public class UserDaoImpl implements UserDao {
+
+    private final EntityManager entityManager;
+
     @Autowired
-    public UserDaoImpl (EntityManager theEntityManager){
-        this.entityManager = theEntityManager;
+    public UserDaoImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
+
     @Override
     public User findByUserName(String theUserName) {
         TypedQuery<User> theQuery = entityManager.createQuery("from User where userName=:uName", User.class);
-        theQuery.setParameter("uName",theUserName);
+        theQuery.setParameter("uName", theUserName);
         User theUser = null;
-        try{
+        try {
             theUser = theQuery.getSingleResult();
-        }catch (Exception e){
+        } catch (Exception e) {
             theUser = null;
         }
         return theUser;
@@ -31,6 +34,5 @@ public class UserDaoImpl implements UserDao{
     @Transactional
     public void save(User theUser) {
         entityManager.merge(theUser);
-
     }
 }

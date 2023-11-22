@@ -22,11 +22,12 @@ import java.util.logging.Logger;
 @RequestMapping("/register")
 public class Registration {
     private Logger logger = Logger.getLogger(getClass().getName());
-    private UserService userService;
+
+    private final UserService userService;
 
     @Autowired
-    public Registration(UserService userService){
-        this.userService=userService;
+    public Registration(UserService userService) {
+        this.userService = userService;
     }
 
     public void initBinder(WebDataBinder dataBinder){
@@ -46,7 +47,7 @@ public class Registration {
             BindingResult theBindingResult,
             HttpSession session, Model theModel){
         String userName = theWebUser.getUserName();
-        logger.info("Processing registration form for; "+userName)
+        logger.info("Processing registration form for; "+userName);
         ;
         if(theBindingResult.hasErrors()){
             return "Login/RegistrationForm";

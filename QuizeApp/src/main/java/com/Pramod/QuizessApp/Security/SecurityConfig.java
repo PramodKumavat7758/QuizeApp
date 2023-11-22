@@ -15,6 +15,7 @@ public class SecurityConfig {
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider(UserService userService){
         DaoAuthenticationProvider auth= new DaoAuthenticationProvider();
@@ -22,6 +23,8 @@ public class SecurityConfig {
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationSuccessHandler customAuthenticationSuccessHandler) throws Exception{
         http.authorizeHttpRequests(configurer ->
                         configurer
