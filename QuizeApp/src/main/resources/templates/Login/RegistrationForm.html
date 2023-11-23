@@ -45,7 +45,7 @@
         <div class="card-body">
             <div class="card-text">
                 <!-- Registration Form -->
-                <form action="#" th:action="@{/register/processRegistrationForm}"
+                <form action="#" th:action="@{/register/processRegistration}"
                       th:object="${webUser}"
                       method="POST" class="form-horizontal">
 
@@ -102,9 +102,6 @@
                         </ul>
                     </div>
 
-
-
-
                     <!-- User name -->
                     <div style="margin-bottom: 25px" class="input-group">
                         <input type="text" th:field="*{userName}" placeholder="Username (*)" class="form-control" />
@@ -118,7 +115,7 @@
 
                     <!-- Password -->
                     <div style="margin-bottom: 25px" class="input-group">
-                        <input type="text" th:field="*{password}" placeholder="Password (*)" class="form-control" />
+                        <input type="password" th:field="*{password}" placeholder="Password (*)" class="form-control" />
                     </div>
 
                     <div th:if="${#fields.hasErrors('password')}"
@@ -127,9 +124,6 @@
                             <li th:each="err : ${#fields.errors('password')}" th:text="'Password ' + ${err}" />
                         </ul>
                     </div>
-
-
-                    <!-- Rest of your form fields... -->
 
                     <!-- Registration Button -->
                     <div style="margin-top: 10px" class="form-group">

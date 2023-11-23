@@ -52,6 +52,13 @@ public class Registration {
         if(theBindingResult.hasErrors()){
             return "Login/RegistrationForm";
         }
+        if(theWebUser.getEmail() == null || theWebUser.getEmail().isEmpty()){
+            theModel.addAttribute("webUser",new WebUser());
+            theModel.addAttribute("RegistrationError","Email is required.");
+            logger.warning("Email is required");
+            return "Login/RegistrationForm";
+        }
+
         User existing = userService.findByUserName(userName);
         if (existing!=null){
             theModel.addAttribute("webUser", new WebUser());
@@ -59,6 +66,7 @@ public class Registration {
             logger.warning("User already exists");
             return "login/RegistrationForm";
         }
+
         userService.save(theWebUser);
         logger.info("User Created: "+userName);
         session.setAttribute("user",theWebUser);
