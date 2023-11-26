@@ -28,14 +28,15 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationSuccessHandler customAuthenticationSuccessHandler) throws Exception{
         http.authorizeHttpRequests(configurer ->
                         configurer
-                                .requestMatchers("/question/List").hasRole("EMPLOYEE")
+                             //   .requestMatchers("/question/List/**").hasRole("EMPLOYEE")
                                // .requestMatchers("/leaders/**").hasRole("MANAGER")
-                                .requestMatchers("/question/**").hasRole("ADMIN")
-                                .requestMatchers("/register/**").permitAll()
+                                .requestMatchers("/question/List/**").hasRole("ADMIN")
+                                .requestMatchers("/register/**","/question/List/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(form ->
                         form
+                             //   .defaultSuccessUrl("/questions/List")
                                 .loginPage("/login")
                                 .loginProcessingUrl("/authenticateTheUser")
                                 .successHandler(customAuthenticationSuccessHandler)
