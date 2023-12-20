@@ -36,7 +36,7 @@ public class SecurityConfig {
                 )
                 .formLogin(form ->
                         form
-                             //   .defaultSuccessUrl("/questions/List")
+                                .defaultSuccessUrl("/questions/List")
                                 .loginPage("/login")
                                 .loginProcessingUrl("/authenticateTheUser")
                                 .successHandler(customAuthenticationSuccessHandler)

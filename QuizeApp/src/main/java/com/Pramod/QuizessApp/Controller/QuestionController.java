@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/question")
@@ -50,5 +49,24 @@ public class QuestionController {
       return "redirect:/question/List";
   }
 
+  // Attempting Logic
+/*  @GetMapping("/attempt_question")
+    public String attempt(@RequestParam("questionId") int questionId, Model model){
+        Question attempQuestion = questionService.findById(questionId);
+        if(attempQuestion != null){
+            model.addAttribute("questions", attempQuestion);
+            return "question/showQuestion";
+        }
+        else {
+            return "error";
+        }
+
+  }
+  @PostMapping("/submitQuiz") //  Quiz Submit
+    public String submit(){
+        return null;
+
+
+  }*/
 
 }
