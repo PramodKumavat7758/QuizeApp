@@ -35,4 +35,9 @@ public class UserDaoImpl implements UserDao {
     public void save(User theUser) {
         entityManager.merge(theUser);
     }
+/*
+    @Override
+    public List<User> findAll() {
+        return ;
+    }*/
 }

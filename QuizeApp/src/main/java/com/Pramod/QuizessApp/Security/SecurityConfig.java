@@ -30,13 +30,14 @@ public class SecurityConfig {
                         configurer
                              //   .requestMatchers("/question/List/**").hasRole("EMPLOYEE")
                                // .requestMatchers("/leaders/**").hasRole("MANAGER")
-                                .requestMatchers("/question/List/**").hasRole("ADMIN")
-                                .requestMatchers("/register/**","/question/List/**").permitAll()
+                               // .requestMatchers("/Admin")
+                                .requestMatchers("/dashboard","/question/List/**").hasRole("ADMIN")
+                                .requestMatchers("/register/**"/*,"/question/List/**"*/).permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(form ->
                         form
-                                .defaultSuccessUrl("/questions/List")
+                              //  .defaultSuccessUrl("/questions/List")
                                 .loginPage("/login")
                                 .loginProcessingUrl("/authenticateTheUser")
                                 .successHandler(customAuthenticationSuccessHandler)

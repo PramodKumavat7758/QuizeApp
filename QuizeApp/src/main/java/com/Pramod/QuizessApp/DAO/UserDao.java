@@ -5,4 +5,6 @@ import com.Pramod.QuizessApp.Model.User;
 public interface UserDao {
     User findByUserName(String userName);
     void save(User theUser);
+
+    //List<User> findAll();
 }

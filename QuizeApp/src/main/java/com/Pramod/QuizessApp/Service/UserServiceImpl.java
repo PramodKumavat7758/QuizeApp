@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
         this.roleDao = roleDao;
         this.passwordEncoder = passwordEncoder;
     }
+/*
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }*/
 
     @Override
     public User findByUserName(String userName) {
