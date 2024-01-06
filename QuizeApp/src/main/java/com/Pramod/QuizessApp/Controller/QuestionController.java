@@ -49,6 +49,17 @@ public class QuestionController {
       return "redirect:/question/List";
   }
 
+
+/*
+  @GetMapping("/search")
+  public String searchQuestion(RequestParam("questionTitle") String questionTitle, Model model){
+        List<Question> searchQ = questionService.findAll(questionTitle);
+
+        model.addattribute
+
+        return "/question/List";
+  }*/
+
   // Attempting Logic
 /*  @GetMapping("/attempt_question")
     public String attempt(@RequestParam("questionId") int questionId, Model model){

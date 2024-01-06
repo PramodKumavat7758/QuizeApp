@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -53,6 +54,11 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Arrays.asList(roleDao.findRolebyName("ROLE_EMPLOYEE")));
 
         userDao.save(user);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
     }
 
     @Override

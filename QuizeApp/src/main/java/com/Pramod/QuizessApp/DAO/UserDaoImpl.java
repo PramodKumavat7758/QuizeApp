@@ -7,6 +7,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class UserDaoImpl implements UserDao {
 
@@ -34,6 +36,11 @@ public class UserDaoImpl implements UserDao {
     @Transactional
     public void save(User theUser) {
         entityManager.merge(theUser);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return findAll();
     }
 /*
     @Override

@@ -28,9 +28,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationSuccessHandler customAuthenticationSuccessHandler) throws Exception{
         http.authorizeHttpRequests(configurer ->
                         configurer
-                             //   .requestMatchers("/question/List/**").hasRole("EMPLOYEE")
-                               // .requestMatchers("/leaders/**").hasRole("MANAGER")
-                               // .requestMatchers("/Admin")
+
                                 .requestMatchers("/dashboard","/question/List/**").hasRole("ADMIN")
                                 .requestMatchers("/register/**"/*,"/question/List/**"*/).permitAll()
                                 .anyRequest().authenticated()
