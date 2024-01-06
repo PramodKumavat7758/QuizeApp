@@ -19,4 +19,9 @@ public class QuizServiceImpl implements QuizService{
     public List<Quiz> findAll() {
         return quizDao.findAll();
     }
+
+    @Override
+    public void save(Quiz theQuiz) {
+        quizDao.save(theQuiz);
+    }
 }
