@@ -3,6 +3,7 @@ package com.Pramod.QuizessApp.Controller;
 import com.Pramod.QuizessApp.Model.Quiz;
 import com.Pramod.QuizessApp.Service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,15 +26,25 @@ public class QuizController {
         model.addAttribute("quizzes", quizzes);
         return "question/quiz/quizList";
     }
-    @GetMapping("/CreateQuiz")
-    public String addQuiz(Model model){
-        Quiz theQuiz = new Quiz();
-        model.addAttribute("quizes", theQuiz);
+    @GetMapping("/CreateNewQuiz")
+    public String showCreatQuizForm(Model model){
+        Quiz quize = new Quiz();
+        model.addAttribute("quiz", quize);
+        System.out.println("Inside the Create New Quize");
+
+
         return "question/quiz/AddQuiz";
     }
+
+
     @PostMapping("/saveQuiz")
-    public String save(@RequestParam String category, @RequestParam int numQ, @RequestParam String title){
-        quizService.create(category,numQ,title);
+    public String createQuiz(@RequestParam String quiz_category, @RequestParam int Quiz_numQ, @RequestParam String title, Model model){
+        ResponseEntity<String> response = quizService.createQuiz(quiz_category, Quiz_numQ, title);
+
+        model.addAttribute("message",response.getBody());
+
+        System.out.println("Inside save Quize");
+
         return "redirect:question/quiz/quizList";
     }
 

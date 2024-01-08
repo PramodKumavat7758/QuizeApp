@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
     <title>Create Quize</title>
 </head>
 <body>
+<div class="container">
+<h2>Create Quiz</h2>
+<form th:action="@{/quiz/saveQuiz}" th:object="${quiz}"  method="POST">
+    <div class="row">
+        <input type="hidden"  th:field="*{id}">
+        <!-- Quize Title -->
+        <div class="mb-3">
+            <label class="form-label">Quize Title</label>
+            <input type="text" th:field="*{title}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Category</label>
+            <input type="text" th:field="*{quiz_category}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of Question</label>
+            <input type="text" th:field="*{Quiz_numQ}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Create Quiz</button>
+            <a th:href="@{'question/quiz/quizList'}"  class="btn btn-primary">Back</a>
+        </div>
+    </div>
+</form>
+    <!--<p th:text="${message}"></p> -->
+</div>
 
 </body>
 </html>

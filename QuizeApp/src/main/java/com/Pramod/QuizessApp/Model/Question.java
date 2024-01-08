@@ -84,8 +84,9 @@ public class Question {
         return category;
     }
 
-    public void setCategory(String category) {
+    public String setCategory(String category) {
         this.category = category;
+        return category;
     }
 
     public String getRightAnswer() {
