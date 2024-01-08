@@ -11,7 +11,7 @@ public class Quiz {
     private Integer id;
     private String title;
     private String quiz_category;
-    private int Quiz_numQ;
+    private int numQ;
     @ManyToMany
     private List<Question> questions;
 
@@ -57,11 +57,11 @@ public class Quiz {
     }
 
     public int getQuiz_numQ() {
-        return Quiz_numQ;
+        return numQ;
     }
 
     public void setQuiz_numQ(int quiz_numQ) {
-        Quiz_numQ = quiz_numQ;
+        numQ = quiz_numQ;
     }
 
     @Override

@@ -38,8 +38,8 @@ public class QuizController {
 
 
     @PostMapping("/saveQuiz")
-    public String createQuiz(@RequestParam String quiz_category, @RequestParam int Quiz_numQ, @RequestParam String title, Model model){
-        ResponseEntity<String> response = quizService.createQuiz(quiz_category, Quiz_numQ, title);
+    public String createQuiz(@RequestParam String category, @RequestParam int numQ, @RequestParam String title, Model model){
+        ResponseEntity<String> response = quizService.createQuiz(category, numQ, title);
 
         model.addAttribute("message",response.getBody());
 
