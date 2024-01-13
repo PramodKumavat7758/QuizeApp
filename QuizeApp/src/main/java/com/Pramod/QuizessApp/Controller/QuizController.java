@@ -45,7 +45,7 @@ public class QuizController {
 
         System.out.println("Inside save Quize");
 
-        return "redirect:question/quiz/quizList";
+        return "redirect:QuizList";
     }
 
 }

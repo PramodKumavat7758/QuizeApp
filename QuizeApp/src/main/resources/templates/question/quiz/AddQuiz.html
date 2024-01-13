@@ -18,7 +18,7 @@
         <input type="hidden"  th:field="*{id}">
         <!-- Quize Title -->
         <div class="mb-3">
-            <label class="form-label">Quize Title</label>
+            <label class="form-label">Quiz Title</label>
             <input type="text" th:field="*{title}" class="form-control">
         </div>
         <div class="mb-3">
@@ -31,7 +31,7 @@
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Create Quiz</button>
-            <a th:href="@{'question/quiz/quizList'}"  class="btn btn-primary">Back</a>
+            <a th:href="@{'/quiz/QuizList'}"  class="btn btn-primary">Back</a>
         </div>
     </div>
 </form>

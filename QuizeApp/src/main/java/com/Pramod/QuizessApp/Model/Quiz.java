@@ -10,7 +10,7 @@ public class Quiz {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    private String quiz_category;
+    private String category;
     private int numQ;
     @ManyToMany
     private List<Question> questions;
@@ -47,22 +47,24 @@ public class Quiz {
         this.questions = questions;
     }
 
-
-    public String getQuiz_category() {
-        return quiz_category;
+    public String getCategory() {
+        return category;
     }
 
-    public void setQuiz_category(String quiz_category) {
-        this.quiz_category = quiz_category;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public int getQuiz_numQ() {
+    public int getNumQ() {
         return numQ;
     }
 
-    public void setQuiz_numQ(int quiz_numQ) {
-        numQ = quiz_numQ;
+    public void setNumQ(int numQ) {
+        this.numQ = numQ;
     }
+
+
+
 
     @Override
     public String toString() {
