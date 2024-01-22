@@ -10,7 +10,7 @@ public interface UserService extends UserDetailsService {
 
 
 
-    User findByUserName(String userName);
+    User findByUserName(String theUserName);
     void save(WebUser webUser);
 
    public List<User> findAll();

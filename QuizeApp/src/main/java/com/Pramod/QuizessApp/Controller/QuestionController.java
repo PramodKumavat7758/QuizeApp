@@ -18,6 +18,8 @@ public class QuestionController {
     public QuestionController(QuestionService theQuestionService){
         questionService=theQuestionService;
     }
+
+
   @GetMapping("/List")
   public String getAllQuestions(Model model) {
       List<Question> questions = questionService.findAll();
@@ -32,7 +34,7 @@ public class QuestionController {
         return "question/AddQuestion";
   }
   @GetMapping("/UpdateQuestion")
-  public String updateQuestion(@RequestParam("questionId") int questionId,  Model model){
+  public String updateQuestion(@RequestParam("questionId") int questionId, Model model){
         Question theQuestion = questionService.findById(questionId);
         model.addAttribute("questions", theQuestion);
         return "question/AddQuestion";

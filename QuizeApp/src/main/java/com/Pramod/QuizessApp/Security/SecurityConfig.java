@@ -31,7 +31,8 @@ public class SecurityConfig {
 
                                 .requestMatchers("/dashboard","/question/List/**").hasRole("ADMIN")
                                 .requestMatchers("/register/**"/*,"/question/List/**"*/).permitAll()
-                                .anyRequest().authenticated()
+                                .requestMatchers("/user/**").hasRole("STUDENT")
+                               .anyRequest().authenticated()
                 )
                 .formLogin(form ->
                         form
