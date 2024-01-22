@@ -40,7 +40,12 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAll() {
-        return findAll();
+       // TypedQuery<User> theQ = entityManager.createQuery("select * from questiondb.user", User.class);
+System.out.println("Helllo We are here");
+TypedQuery<User> query = entityManager.createQuery("select u from User u", User.class );
+
+        return query.getResultList();
+
     }
 /*
     @Override

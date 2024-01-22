@@ -40,5 +40,16 @@ public class UserController {
         model.addAttribute("user",user );
         return "Login/RegistrationForm";
     }
+    // Show the list of all registered user
+
+    @GetMapping("/userList")
+    public String showStudents(Model model){
+        List<User> users= userService.findAll();
+        model.addAttribute("users", users);
+        System.out.println("Show Students...!");
+        return "Admin/userList";
+
+    }
+
 
 }
