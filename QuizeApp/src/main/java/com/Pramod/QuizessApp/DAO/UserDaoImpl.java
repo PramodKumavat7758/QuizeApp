@@ -2,6 +2,7 @@ package com.Pramod.QuizessApp.DAO;
 
 import com.Pramod.QuizessApp.Model.User;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,22 @@ TypedQuery<User> query = entityManager.createQuery("select u from User u", User.
 
         return query.getResultList();
 
+    }
+
+    @Override
+    public User findByUserId(int theUserId) {
+        TypedQuery<User> query = entityManager.createQuery("from User where id=:uId", User.class);
+        query.setParameter("uId",theUserId);
+        System.out.println("Finding User by userId: "+ theUserId);
+
+        try{
+            return query.getSingleResult();
+        }catch (NoResultException e){
+            return null;
+        }
+
+
+     //   return query.getSingleResult();
     }
 /*
     @Override

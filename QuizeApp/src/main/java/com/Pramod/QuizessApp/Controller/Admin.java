@@ -16,25 +16,7 @@ public class Admin {
     public  String  showAdmin(){
            return "Admin/admin";
         }
-
-      /*  @GetMapping("/userList")
-        public String showStudents(Model model){
-            List<User> users = UserService.findAll();
-            model.addAttribute("users", users);
-        return "Admin/userList";
-
-        }
-    @GetMapping("/Home")
-    public String showHome(){
-        return "Admin/home";
-      }
-*/
-
-
-
-
-
-    }
+            }
 
 
 

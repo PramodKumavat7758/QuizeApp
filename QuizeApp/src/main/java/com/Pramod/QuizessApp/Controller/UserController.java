@@ -34,12 +34,7 @@ public class UserController {
 
     // Profile Updating
 
-    @GetMapping("/update_Profile")
-    public String showProfile(@RequestParam("theUserName") String theUserName, Model model){
-        User user = userService.findByUserName(theUserName);
-        model.addAttribute("user",user );
-        return "Login/RegistrationForm";
-    }
+
     // Show the list of all registered user
 
     @GetMapping("/userList")
@@ -50,6 +45,17 @@ public class UserController {
         return "Admin/userList";
 
     }
+
+    @GetMapping("/updateUser")
+    public String updateU(@RequestParam("theUserId") int theUserId,Model model){
+        System.out.println("Inside updateUser controller..!");
+        User theuser = userService.findByUserId(theUserId);
+        model.addAttribute("webUser",theuser);
+        return "Login/RegistrationForm";
+
+    }
+
+
 
 
 }
