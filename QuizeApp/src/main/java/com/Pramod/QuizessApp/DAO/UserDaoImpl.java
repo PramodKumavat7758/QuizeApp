@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
     public UserDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-
+String theUserName;
     @Override
     public User findByUserName(String theUserName) {
         TypedQuery<User> theQuery = entityManager.createQuery("from User where userName=:uName", User.class);
@@ -52,21 +52,23 @@ TypedQuery<User> query = entityManager.createQuery("select u from User u", User.
     @Override
     public User findByUserId(int theUserId) {
         TypedQuery<User> query = entityManager.createQuery("from User where id=:uId", User.class);
-        query.setParameter("uId",theUserId);
-        System.out.println("Finding User by userId: "+ theUserId);
+        query.setParameter("uId", theUserId);
+        System.out.println("Finding User by userId: " + theUserId);
 
-        try{
+
+        try {
             return query.getSingleResult();
-        }catch (NoResultException e){
+        } catch (NoResultException e) {
             return null;
         }
-
-
-     //   return query.getSingleResult();
     }
-/*
+
     @Override
-    public List<User> findAll() {
-        return ;
-    }*/
+    public void deleteById(int theUserId) {
+        TypedQuery query = entityManager.createQuery("delete from User where id=:uId", User.class);
+        query.setParameter("uId",theUserId);
+        query.executeUpdate();
+
+        //DELETE FROM `questiondb`.`user` WHERE (`id` = '9');
+    }
 }

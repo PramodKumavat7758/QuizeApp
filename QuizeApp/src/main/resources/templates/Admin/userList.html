@@ -67,10 +67,10 @@
       <td th:text="${tmpUser.userName}"/>
       <td th:text="${tmpUser.password}"/>
       <td>
-        <a th:href="@{''}" class="btn  btn-outline-primary btn-sm">
+        <a th:href="@{/user/updateUser(theUserId=${tmpUser.id})}" class="btn  btn-outline-primary btn-sm">
           Update
         </a>
-        <a th:href="@{''}" class="btn  btn-outline-danger btn-sm"
+        <a th:href="@{/user/deleteUser(theUserId=${tmpUser.id})}" class="btn  btn-outline-danger btn-sm"
         onclick="return confirm('Are You Sure..?')">
           Delete
         </a>

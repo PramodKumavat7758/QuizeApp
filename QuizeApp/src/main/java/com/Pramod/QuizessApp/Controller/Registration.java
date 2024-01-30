@@ -39,6 +39,7 @@ public class Registration {
         return "Login/RegistrationForm";
     }
 
+
     @PostMapping("/processRegistration")
     public String processRegistration(
             @Valid @ModelAttribute("webUser") WebUser theWebUser,

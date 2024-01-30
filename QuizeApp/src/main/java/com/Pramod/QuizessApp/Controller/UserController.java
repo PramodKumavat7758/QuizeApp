@@ -52,7 +52,13 @@ public class UserController {
         User theuser = userService.findByUserId(theUserId);
         model.addAttribute("webUser",theuser);
         return "Login/RegistrationForm";
+    }
 
+    @GetMapping("/deleteUser")
+    public String deleteU(@RequestParam("theUserId") int theUserId){
+        System.out.println("Inside Delete User controller..!");
+        userService.deleteByUserId(theUserId);
+        return "redirect:/Admin/userList";
     }
 
 
