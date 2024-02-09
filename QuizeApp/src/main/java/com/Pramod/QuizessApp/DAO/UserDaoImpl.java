@@ -3,6 +3,7 @@ package com.Pramod.QuizessApp.DAO;
 import com.Pramod.QuizessApp.Model.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,19 +56,18 @@ TypedQuery<User> query = entityManager.createQuery("select u from User u", User.
         query.setParameter("uId", theUserId);
         System.out.println("Finding User by userId: " + theUserId);
 
-
         try {
             return query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
     }
-
     @Override
+    @Transactional
     public void deleteById(int theUserId) {
-        TypedQuery query = entityManager.createQuery("delete from User where id=:uId", User.class);
+        Query query = entityManager.createQuery("delete from User where id=:uId");
         query.setParameter("uId",theUserId);
-        query.executeUpdate();
+       int result = query.executeUpdate();
 
         //DELETE FROM `questiondb`.`user` WHERE (`id` = '9');
     }

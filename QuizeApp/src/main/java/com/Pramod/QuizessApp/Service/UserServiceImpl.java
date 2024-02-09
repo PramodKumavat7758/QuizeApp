@@ -39,6 +39,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(WebUser webUser) {
         User user = new User();
+/*
+        // Updte existing user
+        User existingUser = userDao.findByUserName(webUser.getUserName());
+        existingUser.setFirstName(webUser.getFirstName());
+        existingUser.setLastName(webUser.getLastName());
+        existingUser.setUserName(webUser.getUserName());
+        existingUser.setEmail(webUser.getEmail());
+        existingUser.setPassword(webUser.getPassword());
+        userDao.save(existingUser);
+
+
+*/
+
+
+
+        /// Save New Userr
         user.setUserName(webUser.getUserName());
         user.setPassword(passwordEncoder.encode(webUser.getPassword()));
      //   user.setPassword(passwordEncoder.encode(webUser.getPassword()));
@@ -63,6 +79,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteByUserId(int theUserId) {
+        System.out.println("Inside delete by Id.....!!!!"+ theUserId);
         userDao.deleteById(theUserId);
     }
 

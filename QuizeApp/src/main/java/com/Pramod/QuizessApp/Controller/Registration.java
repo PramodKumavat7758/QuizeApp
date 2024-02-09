@@ -21,6 +21,7 @@ public class Registration {
     private Logger logger = Logger.getLogger(getClass().getName());
 
     private final UserService userService;
+    private char[] password;
 
     @Autowired
     public Registration(UserService userService) {
@@ -36,6 +37,8 @@ public class Registration {
     @GetMapping("/Registration")
     public String showLogin(Model theModel){
         theModel.addAttribute("webUser", new WebUser());
+
+        System.out.println("Inside Registration...!");
         return "Login/RegistrationForm";
     }
 
@@ -57,15 +60,17 @@ public class Registration {
             logger.warning("Email is required");
             return "Login/RegistrationForm";
         }
+      //  if(theWebUser!=null|| theWebUser.setPassword();)
 
         User existing = userService.findByUserName(userName);
-        if (existing!=null){
+        if (existing!=null) {
             theModel.addAttribute("webUser", new WebUser());
-            theModel.addAttribute("Registration Error","User name already exists..!");
+            theModel.addAttribute("Registration Error", "User name already exists..!");
             logger.warning("User already exists");
-            return "Login/RegistrationForm";
-        }
 
+            return "Login/RegistrationForm";
+
+        }
         userService.save(theWebUser);
         logger.info("User Created: "+userName);
         session.setAttribute("user",theWebUser);
