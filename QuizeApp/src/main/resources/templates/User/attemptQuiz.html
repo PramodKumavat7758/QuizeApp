@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attempt Quiz</title>
+</head>
+<body>
+<h1>Quiz Title: <span th:text="${quiz.title}"></span></h1> <!-- Display the quiz title -->
+<ul>
+    <li th:each="question : ${questions}">
+        <p th:text="${question.questionTitle}"></p> <!-- Display question title -->
+        <ul>
+            <li th:text="${question.option1}"></li> <!-- Display option 1 -->
+            <li th:text="${question.option2}"></li> <!-- Display option 2 -->
+            <li th:text="${question.option3}"></li> <!-- Display option 3 -->
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

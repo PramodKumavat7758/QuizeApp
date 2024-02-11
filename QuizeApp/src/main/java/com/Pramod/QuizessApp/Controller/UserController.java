@@ -58,62 +58,6 @@ public class UserController {
         userService.deleteByUserId(theUserId);
         return "redirect:/user/userList";
     }
-/*
-    // Register User
-    private Logger logger = Logger.getLogger(getClass().getName());
-
-    //  private final UserService userService;
-    private char[] password;
-
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-
-    @InitBinder
-    public void initBinder(WebDataBinder dataBinder){
-        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-        dataBinder.registerCustomEditor(String.class,stringTrimmerEditor);
-    }
-
-    @GetMapping("/Registration")
-    public String showLogin(Model theModel){
-        theModel.addAttribute("webUser", new WebUser());
-        return "Login/RegistrationForm";
-    }
-    @PostMapping("/processRegistration")
-    public String processRegistration(
-            @Valid @ModelAttribute("webUser") WebUser theWebUser,
-            BindingResult theBindingResult,
-            HttpSession session, Model theModel){
-        String userName = theWebUser.getUserName();
-        logger.info("Processing registration form for; "+userName);
-        ;
-        if(theBindingResult.hasErrors()){
-            return "Login/RegistrationForm";
-        }
-        if(theWebUser.getEmail() == null || theWebUser.getEmail().isEmpty()){
-            theModel.addAttribute("webUser",new WebUser());
-            theModel.addAttribute("RegistrationError","Email is required.");
-            logger.warning("Email is required");
-            return "Login/RegistrationForm";
-        }
-        //  if(theWebUser!=null|| theWebUser.setPassword();)
-
-        User existing = userService.findByUserName(userName);
-        if (existing!=null){
-            theModel.addAttribute("webUser", new WebUser());
-            theModel.addAttribute("Registration Error","User name already exists..!");
-            logger.warning("User already exists");
-
-            return "Login/RegistrationForm";
-        }
-        userService.save(theWebUser);
-        logger.info("User Created: "+userName);
-        session.setAttribute("user",theWebUser);
-        return "Login/RegistrationConfirmation";
-    }
-*/
 
 
 

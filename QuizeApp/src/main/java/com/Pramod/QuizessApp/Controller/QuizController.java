@@ -1,15 +1,13 @@
 package com.Pramod.QuizessApp.Controller;
 
+import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Model.Quiz;
 import com.Pramod.QuizessApp.Service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,7 +34,6 @@ public class QuizController {
         return "question/quiz/AddQuiz";
     }
 
-
     @PostMapping("/saveQuiz")
     public String createQuiz(@RequestParam String category, @RequestParam int numQ, @RequestParam String title, Model model){
         ResponseEntity<String> response = quizService.createQuiz(category, numQ, title);
@@ -47,5 +44,19 @@ public class QuizController {
 
         return "redirect:QuizList";
     }
+// Getting quiz and questions
+    @GetMapping("/{id}")
+    public String getQuizQuestions(@PathVariable("id") int id,Model model){
+        Quiz quiz = quizService.getQuizById(id);
+
+        if(quiz!=null){
+            List<Question> questions = quiz.getQuestions();
+                model.addAttribute("questions",questions);
+                model.addAttribute("quiz",quiz);
+                model.addAttribute("quizTitle", quiz.getTitle());
+        }
+        return "User/attemptQuiz";
+    }
+
 
 }

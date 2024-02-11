@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class QuizServiceImpl implements QuizService{
@@ -43,4 +44,13 @@ public class QuizServiceImpl implements QuizService{
 
         return new ResponseEntity<>("Quiz Created Successfully", HttpStatus.CREATED);
     }
+
+    @Override
+    public Quiz getQuizById(int id) {
+        Optional<Quiz> quizOptional = quizDao.findById(id);
+
+        return quizOptional.orElse(null);
+    }
+
+
 }

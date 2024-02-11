@@ -20,6 +20,8 @@ public interface QuizService {
 
     ResponseEntity<String> createQuiz(String category, int numQ, String title);
 
+    Quiz getQuizById(int id);
+
  /*  public default String create(String category, int numQ, String title){
         List<Question> questions = questionDao.findRandomQuestionByCategory(category, numQ);
         Quiz quiz = new Quiz();
