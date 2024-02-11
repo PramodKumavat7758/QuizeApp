@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QuizDao extends JpaRepository<Quiz, Integer> {
+   // String submit(Quiz quiz);
 
 
     //List<Question> findRandomQuestionsByCategory(@Param("category") String category, @Param("numQ") int numQ);

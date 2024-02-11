@@ -2,6 +2,7 @@ package com.Pramod.QuizessApp.Controller;
 
 import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Model.Quiz;
+import com.Pramod.QuizessApp.Model.Response;
 import com.Pramod.QuizessApp.Service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +57,13 @@ public class QuizController {
                 model.addAttribute("quizTitle", quiz.getTitle());
         }
         return "User/attemptQuiz";
+    }
+
+    // Submitt quiz for evaluation
+    @PostMapping("/submit/{id}")
+    public String submitQuiz(@PathVariable Integer id, @RequestBody List<Response> responses){
+        return quizService.calculateResult(id,responses);
+
     }
 
 
