@@ -4,7 +4,6 @@ import com.Pramod.QuizessApp.DAO.QuestionDao;
 import com.Pramod.QuizessApp.DAO.QuizDao;
 import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Model.Quiz;
-import com.Pramod.QuizessApp.Model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +51,7 @@ public class QuizServiceImpl implements QuizService{
 
         return quizOptional.orElse(null);
     }
-
+/*
     @Override
     public String calculateResult(Integer id, List<Response> responses) {
         Quiz quiz = quizDao.findById(id).get();
@@ -64,8 +63,8 @@ public class QuizServiceImpl implements QuizService{
             i++;
 
         }
-        //return quizDao.save(quiz);
-    }
+     //   return quizDao.save(quiz);
+   // }*/
 
 
 }

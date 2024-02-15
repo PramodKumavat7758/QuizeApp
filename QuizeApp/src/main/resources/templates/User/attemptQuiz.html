@@ -12,28 +12,42 @@
           crossorigin="anonymous">
     <title>Attempt Quiz</title>
 </head>
-<body>
+<body class="container">
+<div class="card border-info">
+
+
+
+<!----------------------------------------------------------------------------->
+
 <h1>Quiz Title: <span th:text="${quiz.title}"></span></h1> <!-- Display the quiz title -->
-<div class="container">
-
-    <hr>
-    <form th:action="@{/quiz/submit}" th:object="${}" method="POST">
-
-    </form>
-
-
-
+<form th:action="@{/quiz/submit}">
+    <ul class="list-group">
+        <li th:each="question, questionIndex : ${questions}" class="list-group-item">
+            <p>
+                <!-- Display question serial number with margin -->
+                <span class="me-3">Question <span th:text="${questionIndex.index + 1}"></span>:</span>
+                <span th:text="${question.questionTitle}"></span> <!-- Display question title -->
+            </p>
+            <ul class="list-unstyled">
+                <li class="form-check">
+                    <input class="form-check-input" type="checkbox" th:id="${'question-' + question.id + '-option1'}" name="${'question-' + question.id}" th:value="${question.option1}" />
+                    <label class="form-check-label" th:for="${'question-' + question.id + '-option1'}" th:text="${question.option1}"></label>
+                </li>
+                <li class="form-check">
+                    <input class="form-check-input" type="checkbox" th:id="${'question-' + question.id + '-option2'}" name="${'question-' + question.id}" th:value="${question.option2}" />
+                    <label class="form-check-label" th:for="${'question-' + question.id + '-option2'}" th:text="${question.option2}"></label>
+                </li>
+                <li class="form-check">
+                    <input class="form-check-input" type="checkbox" th:id="${'question-' + question.id + '-option3'}" name="${'question-' + question.id}" th:value="${question.option3}" />
+                    <label class="form-check-label" th:for="${'question-' + question.id + '-option3'}" th:text="${question.option3}"></label>
+                </li>
+                <!-- Add more options as needed -->
+            </ul>
+        </li>
+    </ul>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
 </div>
-
-<ul>
-    <li th:each="question : ${questions}">
-        <p th:text="${question.questionTitle}"></p> <!-- Display question title -->
-        <ul>
-            <li th:text="${question.option1}"></li> <!-- Display option 1 -->
-            <li th:text="${question.option2}"></li> <!-- Display option 2 -->
-            <li th:text="${question.option3}"></li> <!-- Display option 3 -->
-        </ul>
-    </li>
-</ul>
 </body>
 </html>

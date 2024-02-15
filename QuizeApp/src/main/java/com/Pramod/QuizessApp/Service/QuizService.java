@@ -1,7 +1,6 @@
 package com.Pramod.QuizessApp.Service;
 
 import com.Pramod.QuizessApp.Model.Quiz;
-import com.Pramod.QuizessApp.Model.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,7 @@ public interface QuizService {
 
     Quiz getQuizById(int id);
 
-    String calculateResult(Integer id, List<Response> responses);
+ //   String calculateResult(Integer id, List<Response> responses);
 
  /*  public default String create(String category, int numQ, String title){
         List<Question> questions = questionDao.findRandomQuestionByCategory(category, numQ);

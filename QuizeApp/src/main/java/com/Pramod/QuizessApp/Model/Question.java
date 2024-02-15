@@ -2,6 +2,8 @@ package com.Pramod.QuizessApp.Model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "question")
@@ -20,8 +22,10 @@ public class Question {
     private String category;
     private String rightAnswer;
 
+    private List<String> options;
+
     public Question(){}
-    public Question(Integer id, String questionTitle, String option1, String option2, String option3, String difficultylevel, String category, String rightAnswer) {
+    public Question(Integer id, String questionTitle, String option1, String option2, String option3, String difficultylevel, String category, String rightAnswer,List<String> options) {
         this.id = id;
         this.questionTitle = questionTitle;
         this.option1 = option1;
@@ -30,7 +34,10 @@ public class Question {
         this.difficultylevel = difficultylevel;
         this.category = category;
         this.rightAnswer = rightAnswer;
+        this.options = options;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -87,6 +94,14 @@ public class Question {
     public void setCategory(String category) {
         this.category = category;
 
+    }
+
+    public List<String> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<String> options) {
+        this.options = options;
     }
 
     public String getRightAnswer() {

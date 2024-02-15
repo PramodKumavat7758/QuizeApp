@@ -2,7 +2,6 @@ package com.Pramod.QuizessApp.Controller;
 
 import com.Pramod.QuizessApp.Model.Question;
 import com.Pramod.QuizessApp.Model.Quiz;
-import com.Pramod.QuizessApp.Model.Response;
 import com.Pramod.QuizessApp.Service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,6 +45,15 @@ public class QuizController {
         return "redirect:QuizList";
     }
 // Getting quiz and questions
+
+    @GetMapping("/attemptQuiz")
+    public String attempt(Model model){
+        List<Quiz> quizzes = quizService.findAll();
+        model.addAttribute("quizzes", quizzes);
+        return "question/quiz/attempt_Quiz_List";
+    }
+
+
     @GetMapping("/{id}")
     public String getQuizQuestions(@PathVariable("id") int id,Model model){
         Quiz quiz = quizService.getQuizById(id);
@@ -55,16 +63,13 @@ public class QuizController {
                 model.addAttribute("questions",questions);
                 model.addAttribute("quiz",quiz);
                 model.addAttribute("quizTitle", quiz.getTitle());
+               // model.addAttribute("response", responses);
         }
         return "User/attemptQuiz";
     }
 
     // Submitt quiz for evaluation
-    @PostMapping("/submit/{id}")
-    public String submitQuiz(@PathVariable Integer id, @RequestBody List<Response> responses){
-        return quizService.calculateResult(id,responses);
 
-    }
 
 
 }
