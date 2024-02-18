@@ -52,34 +52,8 @@ public class QuestionController {
   }
 
 
-/*
-  @GetMapping("/search")
-  public String searchQuestion(RequestParam("questionTitle") String questionTitle, Model model){
-        List<Question> searchQ = questionService.findAll(questionTitle);
-
-        model.addattribute
-
-        return "/question/List";
-  }*/
-
   // Attempting Logic
-/*  @GetMapping("/attempt_question")
-    public String attempt(@RequestParam("questionId") int questionId, Model model){
-        Question attempQuestion = questionService.findById(questionId);
-        if(attempQuestion != null){
-            model.addAttribute("questions", attempQuestion);
-            return "question/showQuestion";
-        }
-        else {
-            return "error";
-        }
-
-  }
-  @PostMapping("/submitQuiz") //  Quiz Submit
-    public String submit(){
-        return null;
 
 
-  }*/
 
 }

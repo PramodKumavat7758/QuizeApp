@@ -32,39 +32,35 @@ public class QuizServiceImpl implements QuizService{
     @Override
     public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
         List<Question> questions = questionDao.findRandomQuestionsByCategory(category, numQ);
-
-
-
         Quiz quiz = new Quiz();
-
         quiz.setTitle(title);
         quiz.setQuestions(questions);
-
         quizDao.save(quiz);
-
         return new ResponseEntity<>("Quiz Created Successfully", HttpStatus.CREATED);
     }
 
     @Override
     public Quiz getQuizById(int id) {
         Optional<Quiz> quizOptional = quizDao.findById(id);
-
         return quizOptional.orElse(null);
-    }
-/*
-    @Override
-    public String calculateResult(Integer id, List<Response> responses) {
-        Quiz quiz = quizDao.findById(id).get();
-        List<Question> questions = quiz.getQuestions();
-        int rightAns =0 , i = 0;
-        for (Response response : responses){
-            if(response.getResponse().equals(questions.get(id).getRightAnswer()));
-            rightAns++;
-            i++;
+    }/*
 
+    public Integer calculateResult(Integer id, List<Response> responses) {
+        Quiz quiz = quizDao.findById(id).orElse(null);
+        if (quiz == null) {
+            // Handle the case where the quiz with the given ID is not found
+            return null;
         }
-     //   return quizDao.save(quiz);
-   // }*/
+        List<Question> questions = quiz.getQuestions();
+        int rightAns = 0;
+        for (int i = 0; i < Math.min(responses.size(), questions.size()); i++) {
+            Response response = responses.get(i);
+            if (response.getResponse().equals(questions.get(i).getRightAnswer())) {
+                rightAns++;
+            }
+        }
+        return rightAns; // Return the score
+    }*/
 
 
 }

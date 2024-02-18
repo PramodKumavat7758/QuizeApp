@@ -22,7 +22,9 @@ public interface QuizService {
 
     Quiz getQuizById(int id);
 
- //   String calculateResult(Integer id, List<Response> responses);
+   // Integer calculateResult(Integer id, List<Response> responses);
+
+    //   String calculateResult(Integer id, List<Response> responses);
 
  /*  public default String create(String category, int numQ, String title){
         List<Question> questions = questionDao.findRandomQuestionByCategory(category, numQ);

@@ -15,15 +15,14 @@
 <body class="container">
 <div class="card border-info">
 
-
-
-<!----------------------------------------------------------------------------->
-
 <h1>Quiz Title: <span th:text="${quiz.title}"></span></h1> <!-- Display the quiz title -->
-<form th:action="@{/quiz/submit}">
+    <form th:action="@{/quiz/submit}"   method="POST" class="form-horizontal">
+        <!-- Include hidden input field within the form -->
+        <input type="hidden" name="id" th:field="*{id}"/>
     <ul class="list-group">
         <li th:each="question, questionIndex : ${questions}" class="list-group-item">
             <p>
+                <input type="hidden" name="id" th:value="${quiz.id}"/>
                 <!-- Display question serial number with margin -->
                 <span class="me-3">Question <span th:text="${questionIndex.index + 1}"></span>:</span>
                 <span th:text="${question.questionTitle}"></span> <!-- Display question title -->
