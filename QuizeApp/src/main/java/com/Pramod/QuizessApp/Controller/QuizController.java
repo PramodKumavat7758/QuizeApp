@@ -69,62 +69,35 @@ public class QuizController {
         return "User/attemptQuiz";
     }
 
-
-
-
-
-
-
-
     //Submitt quiz for evaluation
     @PostMapping("/submit")
-    public String submitQuiz(@RequestParam Integer id, @RequestParam Map<String,String> userResponses, Model model) {
-        Quiz quiz = quizService.getQuizById(id);
+    public String submitQuiz(@RequestParam("id") Integer quizId, @RequestParam Map<String,String> userResponses, Model model) {
+        Quiz quiz = quizService.getQuizById(quizId);
         if (quiz != null) {
             List<Question> questions = quiz.getQuestions();
-            int totalScore = calculateResult(questions, userResponses);
+
+            int totalScore = calculateTotalScore(questions, userResponses);
+
+            // Add the total score to the model
             model.addAttribute("totalScore", totalScore);
-            System.out.println("Inside the submit quiz if condition");
-        } else {
-            // Return appropriate HTTP status code (e.g., 404) to indicate quiz not found
-            model.addAttribute("error", "Quiz Not Found");
+            // Add userResponses to the model (if needed)
+            model.addAttribute("userResponses", userResponses);
         }
-        System.out.println("Before result");
+        // Return the view to display the result
         return "User/Result";
     }
 
-    private int calculateResult(List<Question> questions, Map<String,String> userResponses) {
-       // Initialize total score to 0
+    private int calculateTotalScore(List<Question> questions, Map<String, String> userResponses) {
         int totalScore = 0;
         for (Question question : questions) {
-            String questionId = String.valueOf(question.getId());
-            String userResponse = userResponses.getOrDefault(questionId, "").trim(); // Trim user response to handle whitespace
-            System.out.println("Question ID: " + questionId); // Debug statement
-          //  System.out.println("User Response: " + userResponse); // Debug statement
-
-            if (!userResponse.isEmpty()) { // Check if user provided a response
-                // Get the correct answer for the current question
-                String correctAnswer = question.getRightAnswer();
-                // Assuming single correct answer for simplicity
-                if (userResponse.equalsIgnoreCase(correctAnswer)) {
-                    totalScore++; // Increment total score for correct answer
-                }
-
+            String correctAnswer = question.getRightAnswer(); // Assuming you have a method to retrieve the correct answer for each question
+            String userResponse = userResponses.get(question.getId().toString());
+           // System.out.println(userResponses);
+            System.out.println(userResponse);
+            if (userResponse != null && userResponse.equals(correctAnswer)) {
+                totalScore++;
             }
         }
-        System.out.println("Total Score: " + totalScore);
         return totalScore;
     }
-/*
-    @PostMapping("/submit/{id}")
-    public ResponseEntity<Integer> submitQuiz(@PathVariable Integer id, @RequestBody List<Response> responses) {
-        Integer score = quizService.calculateResult(id, responses);
-        if (score == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Return 404 if quiz not found
-        }
-        return new ResponseEntity<>(score, HttpStatus.OK); // Return the score
-    }
-
-*/
-
 }

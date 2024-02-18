@@ -22,7 +22,8 @@ public interface QuizService {
 
     Quiz getQuizById(int id);
 
-   // Integer calculateResult(Integer id, List<Response> responses);
+
+    // Integer calculateResult(Integer id, List<Response> responses);
 
     //   String calculateResult(Integer id, List<Response> responses);
 
