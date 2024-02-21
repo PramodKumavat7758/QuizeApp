@@ -52,6 +52,7 @@ public class Registration {
         logger.info("Processing registration form for; "+userName);
         ;
         if(theBindingResult.hasErrors()){
+            System.out.println("Binding result has errors...!");
             return "Login/RegistrationForm";
         }
         if(theWebUser.getEmail() == null || theWebUser.getEmail().isEmpty()){

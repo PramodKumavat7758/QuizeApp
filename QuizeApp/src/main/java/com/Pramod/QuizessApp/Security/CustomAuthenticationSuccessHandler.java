@@ -28,10 +28,20 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         System.out.println("In CustomAuthenticationSuccessHandler");
         String userName = authentication.getName();
         //String userPass = (String) authentication.getCredentials();
-        System.out.println("userName= "+userName);
+        System.out.println("userName= " + userName);
         //System.out.println("userPass= "+userPass);
         User theUser = userService.findByUserName(userName);
-        HttpSession session = request.getSession();
-        response.sendRedirect(request.getContextPath() + "/");
+
+        if (theUser.getRoles().equals("ADMIN")) {
+            response.sendRedirect(request.getContextPath() + "Admin/admin");
+        } else if (theUser.getRoles().equals("STUDENT")) {
+            response.sendRedirect(request.getContextPath() + "User/userDashboard");
+
+        } else {
+
+
+            HttpSession session = request.getSession();
+            response.sendRedirect(request.getContextPath() + "/");
+        }
     }
 }

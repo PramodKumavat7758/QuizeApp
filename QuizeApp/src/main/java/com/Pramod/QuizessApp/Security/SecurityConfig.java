@@ -29,10 +29,9 @@ public class SecurityConfig {
         http.authorizeHttpRequests(configurer ->
                         configurer
 
-                                .requestMatchers("/dashboard","/question/List/**").hasRole("ADMIN")
-                                .requestMatchers("/register/**"/*,"/question/List/**"*/).permitAll()
-                                .requestMatchers("/user/Registration").hasRole("STUDENT")
-                                .requestMatchers("/user/Registration").permitAll()
+                                .requestMatchers("/question/List/**","/user/userList","/quiz/QuizList").hasRole("ADMIN")
+                                .requestMatchers("/register/**").permitAll()
+                                .requestMatchers("/Dashboard","/quiz/attemptQuiz").hasRole("STUDENT")
                                .anyRequest().authenticated()
                 )
                 .formLogin(form ->

@@ -16,6 +16,8 @@ public class Admin {
     public  String  showAdmin(){
            return "Admin/admin";
         }
+        @GetMapping("/Dashboard")
+    public String showStudentDash(){return "User/userDashboard";}
 }
 
 
