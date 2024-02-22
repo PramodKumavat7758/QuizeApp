@@ -7,16 +7,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-
 public class Admin {
 
     @Autowired
     UserService userService;
-    @GetMapping("/")
+
+
+
+    @GetMapping("/Admin")
     public  String  showAdmin(){
+
+
            return "Admin/admin";
         }
-        @GetMapping("/Dashboard")
+
+
+
+    @GetMapping("/Dashboard")
     public String showStudentDash(){return "User/userDashboard";}
 }
 
