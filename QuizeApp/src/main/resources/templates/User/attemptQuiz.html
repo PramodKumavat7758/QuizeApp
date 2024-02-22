@@ -20,7 +20,7 @@
         <!-- Include hidden input field within the form -->
         <input type="hidden" name="id" th:field="*{id}"/>
     <ul class="list-group">
-        <li th:each="question, questionIndex : ${questions}" class="list-group-item">
+        <li th:each="question, questionIndex : ${questions}" th:count="index" class="list-group-item">
             <p>
                 <input type="hidden" name="id" th:value="${quiz.id}"/>
                 <!-- Display question serial number with margin -->
@@ -29,15 +29,15 @@
             </p>
             <ul class="list-unstyled">
                 <li class="form-check">
-                    <input class="form-check-input" type="radio" th:id="${'question-' + question.id + '-option1'}" name="${'question-' + question.id}" th:value="${question.option1}" />
+                    <input class="form-check-input" type="radio" th:id="${'question-' + question.id + '-option1'}" th:name="${question.id}" th:value="${question.option1}" />
                     <label class="form-check-label" th:for="${'question-' + question.id + '-option1'}" th:text="${question.option1}"></label>
                 </li>
                 <li class="form-check">
-                    <input class="form-check-input" type="radio" th:id="${'question-' + question.id + '-option2'}" name="${'question-' + question.id}" th:value="${question.option2}" />
+                    <input class="form-check-input" type="radio" th:id="${'question-' + question.id + '-option2'}" th:name="${question.id}" th:value="${question.option2}" />
                     <label class="form-check-label" th:for="${'question-' + question.id + '-option2'}" th:text="${question.option2}"></label>
                 </li>
                 <li class="form-check">
-                    <input class="form-check-input" type="radio" th:id="${'question-' + question.id + '-option3'}" name="${'question-' + question.id}" th:value="${question.option3}" />
+                    <input class="form-check-input" type="radio" th:id="${'question-' + question.id + '-option3'}" th:name="${question.id}" th:value="${question.option3}" />
                     <label class="form-check-label" th:for="${'question-' + question.id + '-option3'}" th:text="${question.option3}"></label>
                 </li>
                 <!-- Add more options as needed -->
@@ -48,5 +48,10 @@
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
 </div>
+<script type="text/javascript">
+    // Convert Thymeleaf 'questions' variable to JSON and log it
+    debugger;
+ console.log(/*[(${questions})]*/ null);
+</script>
 </body>
 </html>

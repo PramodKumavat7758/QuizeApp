@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -44,24 +43,9 @@ public class QuizServiceImpl implements QuizService{
     public Quiz getQuizById(int id) {
         Optional<Quiz> quizOptional = quizDao.findById(id);
         return quizOptional.orElse(null);
-    }/*
+    }
 
-    public Integer calculateResult(Integer id, List<Response> responses) {
-        Quiz quiz = quizDao.findById(id).orElse(null);
-        if (quiz == null) {
-            // Handle the case where the quiz with the given ID is not found
-            return null;
-        }
-        List<Question> questions = quiz.getQuestions();
-        int rightAns = 0;
-        for (int i = 0; i < Math.min(responses.size(), questions.size()); i++) {
-            Response response = responses.get(i);
-            if (response.getResponse().equals(questions.get(i).getRightAnswer())) {
-                rightAns++;
-            }
-        }
-        return rightAns; // Return the score
-    }*/
+
 
 
 

@@ -90,9 +90,10 @@ public class QuizController {
     private int calculateTotalScore(List<Question> questions, Map<String, String> userResponses) {
         int totalScore = 0;
         for (Question question : questions) {
-            String correctAnswer = question.getRightAnswer(); // Assuming you have a method to retrieve the correct answer for each question
+            String correctAnswer = question.getRightAnswer().toString(); // Assuming you have a method to retrieve the correct answer for each question
             String userResponse = userResponses.get(question.getId().toString());
            // System.out.println(userResponses);
+            System.out.println(question);
             System.out.println(userResponse);
             if (userResponse != null && userResponse.equals(correctAnswer)) {
                 totalScore++;
