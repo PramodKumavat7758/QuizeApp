@@ -22,6 +22,12 @@
                 <div class="card-body">
                     <h2>Total Score: <span th:text="${totalScore}"></span></h2>
                     <!-- You can add more details or messages here based on the quiz result -->
+                    <div class="text-center"> <!-- Center-aligning the button -->
+                        <h4> You can logout..!</h4>
+                        <form action="#" th:action="@{/logout}" method="POST">
+                            <button class="btn btn-secondary" type="submit" value="Logout">Logout</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

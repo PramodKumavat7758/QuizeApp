@@ -15,10 +15,25 @@
     <title>Admin</title>
     <style>
 
+body{
+        background-image: url('/Bg-images/Dash.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
         .profile-icon {
             margin-left: auto;
             margin-right: 20px;/* Pushes the icon to the right */
         }
+        .overlay-text{
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            transform: translate(-50, -50);
+            text-align: center;
+            font-size: 25px;
+            color: #212529;
+            }
     </style>
 </head>
 <body>
@@ -60,40 +75,11 @@
         </div>
     </div>
 </nav>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Total Questions</h5>
-                <p class="card-text">Total Number Of Questions: <span id="totalQuestions"></span>
-                        </p>
+<div class="overlay-text">
+    <h1> Welcome Admin</h1>
+    <p>Welcome, Admin! You have access to additional features and settings.</p>
 
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Total Quizes</h5>
-                <p class="card-text">Total Number Of Quizes: <span id="totalQuizes"></span> </p>
-
-            </div>
-        </div>
-    </div>
 </div>
-<p3> This is admin page you are creater of this portal</p3>
-<script>
-    // Simulating dynamic data update
-    document.getElementById('totalQuestions').innerText = Math.floor(Math.random() * 100); // Random number between 0 and 100
-    document.getElementById('totalQuizzes').innerText = Math.floor(Math.random() * 50); // Random number between 0 and 50
-
-    // Logout button click event
-    document.getElementById('logoutBtn').addEventListener('click', function() {
-        // Perform logout action here
-        alert('Logout clicked!');
-    });
-</script>
-
 
 </body>
 </html>
