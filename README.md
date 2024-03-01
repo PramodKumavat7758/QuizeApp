@@ -67,7 +67,7 @@ To run this project on your local machine, follow these steps:
 ## Admin Login
 ![Admin](Admin.png)
 
-** Admin Home Page
+1. **Admin Home Page
 ![Admin Home](AdminHome.png)
 
 - Question List
