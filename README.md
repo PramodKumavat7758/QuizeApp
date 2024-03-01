@@ -66,7 +66,25 @@ To run this project on your local machine, follow these steps:
 
 ## Admin Login
 ![Admin](Admin.png)
+
+- Admin Home Page
 ![Admin Home](AdminHome.png)
+
+- Question List
+![Question List](QuestionList.png)
+
+- Create Question
+ ![Create Question](CreateQuestion.png)
+
+- Quiz List
+![Quiz List](QuizList.png)
+
+- Create Quiz
+![Create Quiz](CreateQuiz.png)
+
+- User List
+![User List](UserList.png)
+
 
 
 ## Update Exsting Employee
