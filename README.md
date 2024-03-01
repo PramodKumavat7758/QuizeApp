@@ -64,7 +64,7 @@ To run this project on your local machine, follow these steps:
 - It help to check the knowledge about the topic
 
 
-## Admin Login
+## Admin Login :
 
 ![Admin](Admin.png)
 
@@ -94,7 +94,7 @@ To run this project on your local machine, follow these steps:
 
 
 
-## User Login
+## User Login :
 
 ![User Login](UserLogin.png)
 
@@ -102,15 +102,15 @@ To run this project on your local machine, follow these steps:
    
 ![User Home](UserrHome.png)
 
-3. **Attempt Quiz List:**
+2. **Attempt Quiz List:**
    
    ![Attempt Quiz List](AtttemptQuizList.png)
    
-5. **Attempting Quiz:**
+3. **Attempting Quiz:**
    
 ![Attempt Quiz](AttemptingQuiz.png)
 
-7. **Quiz Result:**
+4. **Quiz Result:**
 
    ![Quiz Result](QuizResult.png)
 
