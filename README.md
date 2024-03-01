@@ -59,14 +59,15 @@ To run this project on your local machine, follow these steps:
 
 ## Usage
 
-- Login to appication.
-- Click on the .
-- Click "Update" next to an employee record to edit their details.
-- Click "Delete" to remove an employee record from the system.
+- Take online assesment.
+- Create random quizes.
+- It help to check the knowledge about the topic
 
 
-## List Employees
-![List Employees](Welcome.png)
+## Admin Login
+![Admin](Admin.png)
+![Admin Home](AdminHome.png)
+
 
 ## Update Exsting Employee
 ![UpdateEmployee](UpdatingEmployee.png)
