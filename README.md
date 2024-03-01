@@ -4,10 +4,16 @@ This is a web application built using Spring Boot that allows users to attend qu
 
 ## Features
 
-- Add a new employee with their details.
-- Update existing employee details.
-- Delete employee records.
-- Display a list of all employees in a table.
+- Add a new questions / create quiz by selecting random questions and categories.
+- Update / Delete existing questions.
+- Delete user record.
+- Register new user.
+- Display a list of all users.
+- Score displayed for correct quiz answer.
+- Login / Logoout support using spring security.
+- Check user answer with existing answer from database.
+- Validation provide better security
+- Url endpoint security.
 
 ## Technologies Used
 --------------------------------------------------------------------------------------------------------------------
@@ -15,6 +21,7 @@ This is a web application built using Spring Boot that allows users to attend qu
 - Spring Boot
 - Spring MVC
 - Hibernate
+- Maven
 - Thymeleaf (for templating)
 - MySQL Database (or your preferred database)
 
@@ -52,8 +59,8 @@ To run this project on your local machine, follow these steps:
 
 ## Usage
 
-- Navigate to the "List Employees" page to view the existing employee records.
-- Click "Add Employee" to add a new employee record.
+- Login to appication.
+- Click on the .
 - Click "Update" next to an employee record to edit their details.
 - Click "Delete" to remove an employee record from the system.
 
