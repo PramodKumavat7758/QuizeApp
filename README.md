@@ -114,6 +114,8 @@ To run this project on your local machine, follow these steps:
 
    ![Quiz Result](QuizResult.png)
 
+## EER Diagram :
+![EER](EER.png)
 
 
 
