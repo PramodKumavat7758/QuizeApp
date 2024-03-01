@@ -67,31 +67,39 @@ To run this project on your local machine, follow these steps:
 ## Admin Login
 ![Admin](Admin.png)
 
-1. **Admin Home Page
+1. **Admin Home Page:**
 ![Admin Home](AdminHome.png)
 
-- Question List
+2. **Question List:**
 ![Question List](QuestionList.png)
 
-- Create Question
+3. **Create Question:**
  ![Create Question](CreateQuestion.png)
 
-- Quiz List
+4. **Quiz List:**
 ![Quiz List](QuizList.png)
 
-- Create Quiz
+5. **Create Quiz:**
 ![Create Quiz](CreateQuiz.png)
 
-- User List
+6. **User List:**
 ![User List](UserList.png)
 
 
 
-## Update Exsting Employee
-![UpdateEmployee](UpdatingEmployee.png)
+## User Login
+![User Login](UserLogin.png)
 
-## Add New Employee
-![addNewEmployee](AddingNewEmployee.png)
+1. **User Home:**
+![User Home](UserrHome.png)
+
+2. **Attempt Quiz List:**
+   ![Attempt Quiz List](AttemptQuizList.png)
+   
+4. **Attempting Quiz:**
+![Attempt Quiz](AttemptingQuiz.png)
+
+
 
 
 
